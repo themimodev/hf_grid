@@ -4,84 +4,84 @@ nav,
 article,
 aside,
 .mycontainer {
-  margin: 0;
-  padding: 10px;
-  color: rgb(160, 30, 80);
-  font-family: "Courier New", Courier, monospace;
-  text-align: center;
+margin: 0;
+padding: 10px;
+color: rgb(160, 30, 80);
+font-family: "Courier New", Courier, monospace;
+text-align: center;
 }
 
 body {
   background-image: url("kepek/hatter.jpeg");
-  background-size: cover;
-  background-position: 80% center;
-  max-width: 50%;
-  margin: 0 auto;
-  border: 1px white solid;
+background-size: cover;
+background-position: 80% center;
+max-width: 50%;
+margin: 0 auto;
+border: 1px white solid;
 }
 
 header {
   font-size: 20px;
-  border-bottom: 1px white solid;
+border-bottom: 1px white solid;
 }
 
 nav {
-  border-bottom: 1px white solid;
+border-bottom: 1px white solid;
 }
 
 nav ul {
   list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0;
-  padding: 0;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+margin: 0;
+padding: 0;
 }
 
 nav ul li {
-  font-size: 20px;
+font-size: 20px;
 }
 
 nav a {
-  color: rgb(160, 30, 80);
-  text-decoration: none;
+color: rgb(160, 30, 80);
+text-decoration: none;
 }
 
 .tartalom-racs {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+display: grid;
+grid-template-columns: 2fr 2fr 1fr;
 }
 
 article {
-  border-right: 1px white solid;
+border-right: 1px white solid;
 }
 
 .mycontainer {
-  border-right: 1px white solid;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 0px;
-  list-style-type: none;
+border-right: 1px white solid;
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding: 0px;
+list-style-type: none;
 }
 
 .mycontainer_bal {
-  border-right: 1px white solid;
+border-right: 1px white solid;
 }
 
 .mycontainer_bal,
 .mycontainer_jobb,
 .mycontainer_felso,
 .mycontainer_also {
-  padding: 10px;
-  border-bottom: 1px white solid;
+padding: 10px;
+border-bottom: 1px white solid;
 }
 
 .mycontainer_also {
-  border-bottom: none;
+border-bottom: none;
 }
 
 .mycontainer_felso,
 .mycontainer_also {
-  grid-column: 1 / 3;
+grid-column: 1 / 3;
 }
 
 footer {
@@ -89,30 +89,78 @@ footer {
 }
 
 h3 {
-  font-size: 15px;
+font-size: 15px;
 }
 
 .mycontainer p,
 aside p {
-  font-size: 13px;
+font-size: 13px;
 }
 
 .kepracs {
-  grid-column: 1 / 3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px white solid;
-  border-right: 1px white solid;
+grid-column: 1 / 3;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+border-top: 1px white solid;
+border-right: 1px white solid;
 }
 
 .kepracs img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  gap: 5px;
+width: 100%;
+height: 200px;
+object-fit: cover;
+display: block;
+gap: 5px;
+border-left: 1px white solid;
+border-bottom: 1px white solid;
+border-right: 1px white solid;
 }
 
 aside {
-  grid-row: span 2;
+grid-row: span 2;
+}
+
+.tartalom-racs {
+  grid-template-areas:
+    "ar mc as"
+    "kr kr as";
+}
+
+article { grid-area: ar; }
+.mycontainer { grid-area: mc; }
+aside { grid-area: as; }
+.kepracs { grid-area: kr; }
+
+@media screen and (max-width: 1200px) {
+  body { max-width: 90%; }
+}
+
+
+@media screen and (max-width: 800px) {
+  body { max-width: 95%; }
+
+  nav ul { grid-template-columns: 1fr; }
+
+  article, .mycontainer, .kepracs { border-right: none; }
+
+  .tartalom-racs {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ar"
+      "mc"
+      "kr"
+      "as";
+  }
+
+article { border-bottom: 1px white solid; }
+aside { border-top: 1px white solid; }
+
+}
+
+@media screen and (max-width: 600px) {
+  .mycontainer { grid-template-columns: 1fr; }
+
+  .mycontainer_felso, .mycontainer_also { grid-column: auto; }
+
+  .mycontainer_bal { border-right: none; }
 }
